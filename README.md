@@ -1,6 +1,6 @@
-## Backend for freelancer job advertising web app.
+# Backend for freelancer job advertising web app.
 
-# Running container:
+## Running container:
     In order to run container you need to run 
     docker-compose up
     command while being inside project folder.
@@ -11,7 +11,7 @@
     command while being inside project folder.
     Command requires Maven installed.
 
-## Endpoints
+# Endpoints
     The app provides the following endpoints:
     POST localhost:8080/api/auth/register 
         - for registering new account
@@ -22,8 +22,7 @@
         - returns JSON Web Token used for authentication
         - takes JSON with fields: "email": String, "password": String
     
-# Using endpoint listed below requires providing a bearer token
-# that can be acquired through the first two endpoints
+## Using endpoint listed below requires providing a bearer token that can be acquired through the first two endpoints
 
     POST localhost:8080/api/posts
         - for creating new post
