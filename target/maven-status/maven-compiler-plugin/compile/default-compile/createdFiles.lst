@@ -26,3 +26,4 @@ com\FreelancersBackend\models\enums\Role.class
 com\FreelancersBackend\models\Post$PostBuilder.class
 com\FreelancersBackend\models\User$UserBuilder.class
 com\FreelancersBackend\models\User.class
+com\FreelancersBackend\config\CorsConfig.class
