@@ -1,20 +1,24 @@
 package com.FreelancersBackend.config;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+
+import java.util.Arrays;
+import java.util.Collections;
 
 @Configuration
-@Component
-public class CorsConfig implements WebMvcConfigurer {
+public class CorsConfig implements CorsConfigurationSource {
 
     @Override
-    public void addCorsMappings(CorsRegistry corsRegistry){
-        corsRegistry.addMapping("/api/**") // Wskazuje ścieżkę API, dla której ma być zastosowana konfiguracja CORS
-                .allowedOrigins("http://localhost:3000") // Wymień tutaj adresy, z których akceptowane będą żądania CORS (np. adres frontendu)
-                .allowedMethods("GET", "POST", "PUT", "DELETE") // Określa dozwolone metody HTTP
-                .allowedHeaders("*") // Określa dozwolone nagłówki
-                .allowCredentials(false); // Umożliwia przesyłanie ciasteczek i nagłówka autoryzacji
+    public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOriginPatterns(Collections.singletonList("*"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
+        configuration.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
+        configuration.setExposedHeaders(Collections.singletonList("Access-Control-Allow-Origin"));
+        configuration.setAllowCredentials(true);
+        return configuration;
     }
 }
