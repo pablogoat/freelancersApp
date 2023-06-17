@@ -1,5 +1,4 @@
 com\FreelancersBackend\dao\UserRepository.class
-com\FreelancersBackend\api\TestController.class
 com\FreelancersBackend\api\auth\RegisterRequest$RegisterRequestBuilder.class
 com\FreelancersBackend\models\Photo.class
 com\FreelancersBackend\api\posts\PostsService.class
@@ -23,6 +22,7 @@ com\FreelancersBackend\api\auth\AuthenticationResponse.class
 com\FreelancersBackend\api\auth\RegisterRequest.class
 com\FreelancersBackend\FreelancersBackendApplication.class
 com\FreelancersBackend\models\enums\Role.class
+com\FreelancersBackend\config\WebConfig.class
 com\FreelancersBackend\models\Post$PostBuilder.class
 com\FreelancersBackend\models\User$UserBuilder.class
 com\FreelancersBackend\models\User.class
