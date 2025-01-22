@@ -6,10 +6,7 @@
     command while being inside project folder.
     Command requires Docker installed.
 
-    You may need to build project first with
-    mvn clean package 
-    command while being inside project folder.
-    Command requires Maven installed.
+    Java executable will be compiled automaticly
 
 # Endpoints
     The app provides the following endpoints:
