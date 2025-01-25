@@ -31,6 +31,7 @@ public class PostsService {
         var post = Post.builder()
                 .title(request.getTitle())
                 .text(request.getText())
+                .priority(request.getPriority())
                 .marker_location_lat(request.getMarker_location_lat())
                 .marker_location_lng(request.getMarker_location_lng())
                 .user(userRepository.findByEmail(email).get())
