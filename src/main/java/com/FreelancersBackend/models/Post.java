@@ -30,6 +30,7 @@ public class Post {
     private User user;
     private String title;
     private String text;
+    private Boolean priority;
     @OneToMany(mappedBy = "post")
     @JsonIgnore
     private List<Photo> photos;

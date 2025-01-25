@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class NewPostRequest {
     private String title;
     private String text;
+    private Boolean priority;
     private float marker_location_lng;
     private float marker_location_lat;
 }

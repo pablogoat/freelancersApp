@@ -1,0 +1,7 @@
+ALTER TABLE posts
+    ADD COLUMN priority BOOLEAN;
+
+UPDATE posts SET priority = FALSE WHERE 1=1;
+
+ALTER TABLE posts
+ALTER COLUMN priority SET NOT NULL;

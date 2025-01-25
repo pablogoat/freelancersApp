@@ -20,6 +20,7 @@ public class PostData {
     private Integer user_id;
     private String title;
     private String text;
+    private Boolean priority;
     private List<String> photos;
     private Date timestamp;
     private float marker_location_lng;
@@ -30,6 +31,7 @@ public class PostData {
         this.user_id = post.getUser().getId();
         this.title = post.getTitle();
         this.text = post.getText();
+        this.priority = post.getPriority();
         this.photos = post.getPhotos().stream()
                 .map(Photo::getUrl)
                 .collect(Collectors.toList());
