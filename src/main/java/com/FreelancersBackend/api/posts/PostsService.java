@@ -104,4 +104,8 @@ public class PostsService {
 
         return "Post deleted";
     }
+
+    public void markAsPriority(Integer postId) {
+        postsRepository.setPriority(postId, true);
+    }
 }

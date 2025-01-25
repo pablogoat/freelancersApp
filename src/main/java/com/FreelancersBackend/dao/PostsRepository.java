@@ -10,4 +10,5 @@ public interface PostsRepository extends JpaRepository<Post, Integer> {
 
     List<Post> findByTitle(String title);
     Optional<Post> findById(Integer id);
+    void setPriority(Integer id, Boolean priority);
 }

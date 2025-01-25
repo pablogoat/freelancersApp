@@ -1,9 +1,12 @@
 package com.FreelancersBackend.api.posts;
 
+import com.FreelancersBackend.models.PaymentDto;
 import com.FreelancersBackend.models.Post;
 import com.FreelancersBackend.models.PostData;
+import com.FreelancersBackend.service.PayPalService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +19,7 @@ import java.util.List;
 public class PostsController {
 
     private final PostsService postsService;
+    private final PayPalService paymentService;
 
     @PostMapping
     public ResponseEntity<Integer> createNewPost(
@@ -24,6 +28,18 @@ public class PostsController {
         return ResponseEntity.ok(postsService.createNew(
                 request,
                 authentication.getName()));
+    }
+
+    @PostMapping("/api/posts/{postId}/mark-priority")
+    public ResponseEntity<Void> markPostAsPriority(@PathVariable Long postId, @RequestBody PaymentDto paymentDto) {
+        boolean isPaymentValid = paymentService.verifyPayment(paymentDto.getPaymentId());
+
+        if (isPaymentValid) {
+            postsService.markAsPriority(Math.toIntExact(postId));
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
     }
 
     @GetMapping
