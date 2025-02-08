@@ -106,6 +106,10 @@ public class PostsService {
     }
 
     public void markAsPriority(Integer postId) {
-        postsRepository.setPriority(postId, true);
+        //postsRepository.setPriority(postId, true);
+        Post post = postsRepository.findById(postId)
+                .orElseThrow(() -> new RuntimeException("Post does not exist"));
+        post.setPriority(true);
+        postsRepository.save(post);
     }
 }
